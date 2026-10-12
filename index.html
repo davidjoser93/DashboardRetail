@@ -45,20 +45,14 @@
     <nav class="fixed w-full z-50 bg-brand-black/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center gap-3">
-                    <img src="Logo Ing David Rodríguez Transparencia.png" alt="Dashboard Retail Logo" class="h-12 w-auto object-contain brightness-0 invert opacity-90" onerror="this.onerror=null; this.src='https://placehold.co/100x40/121212/8CC63F?text=DR';">
-                    <span class="font-bold text-xl text-white tracking-tight">Dashboard<span class="text-brand-green">Retail</span></span>
-                </div>
+                <a href="#" class="flex-shrink-0 flex items-center">
+                    <img src="Logo.png" alt="Dashboard Retail" class="h-12 w-auto object-contain">
+                </a>
                 <div class="hidden md:flex space-x-8">
                     <a href="#solucion" class="text-gray-300 hover:text-brand-green transition-colors text-sm font-medium">Solución</a>
                     <a href="#tecnologia" class="text-gray-300 hover:text-brand-green transition-colors text-sm font-medium">Tecnología</a>
                     <a href="#dashboard" class="text-gray-300 hover:text-brand-green transition-colors text-sm font-medium">Plataforma</a>
                     <a href="#roi" class="text-gray-300 hover:text-brand-green transition-colors text-sm font-medium">Modelo SaaS</a>
-                </div>
-                <div class="hidden md:flex">
-                    <a href="#contacto" class="bg-brand-green hover:bg-green-500 text-brand-black font-semibold px-6 py-2.5 rounded-full transition-all shadow-neon hover:-translate-y-0.5">
-                        Solicitar Demo
-                    </a>
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
@@ -108,16 +102,17 @@
                     <!-- Mockup of the Shelf Node -->
                     <div class="aspect-[4/3] rounded-xl bg-black border border-white/5 overflow-hidden relative flex items-center justify-center group">
                         <!-- Tablet representation -->
-                        <div class="w-3/4 h-2/3 bg-gray-900 rounded-lg border-4 border-gray-800 shadow-xl relative overflow-hidden">
-                            <!-- Screen Content -->
-                            <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('https://placehold.co/800x600/121212/8CC63F?text=Interactive+Promo+Video');"></div>
-                            <div class="absolute inset-0 flex flex-col items-center justify-center">
-                                <i class="ph ph-play-circle text-5xl text-brand-green mb-2 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-white text-xs font-medium bg-black/50 px-2 py-1 rounded">Interacción Táctil Activa</span>
+                        <div class="w-11/12 h-[82%] bg-gray-900 rounded-lg border-4 border-gray-800 shadow-xl relative overflow-hidden flex items-center justify-center cursor-pointer group/video" id="videoWrapper">
+                            <video id="heroVideo" src="DashboardRetail.mp4" playsinline preload="metadata" class="w-full h-full object-cover"></video>
+                            <div id="videoOverlay" class="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex flex-col items-center justify-center transition-all duration-300 group-hover/video:bg-black/20">
+                                <div class="w-16 h-16 rounded-full bg-brand-green flex items-center justify-center shadow-neon group-hover/video:scale-110 transition-transform mb-2">
+                                    <i class="ph-fill ph-play text-2xl text-brand-black ml-1"></i>
+                                </div>
+                                <span class="text-white text-xs font-medium bg-black/60 px-3 py-1 rounded-full border border-white/20">Clic para reproducir video</span>
                             </div>
                         </div>
                         <!-- Hardware labels -->
-                        <div class="absolute bottom-4 left-4 flex gap-2">
+                        <div class="absolute bottom-2 left-4 flex gap-2 pointer-events-none z-10">
                             <span class="bg-brand-green/20 text-brand-green text-[10px] px-2 py-1 rounded border border-brand-green/30 flex items-center gap-1"><i class="ph ph-battery-charging"></i> UPS Activo</span>
                             <span class="bg-brand-accent/20 text-brand-accent text-[10px] px-2 py-1 rounded border border-brand-accent/30 flex items-center gap-1"><i class="ph ph-wifi-high"></i> LTE 4G</span>
                         </div>
@@ -139,28 +134,49 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-14 h-14 rounded-2xl bg-black flex items-center justify-center mb-6 shadow-md">
-                        <i class="ph ph-eye text-3xl text-brand-green"></i>
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 transition-transform duration-300 flex flex-col group">
+                    <div class="relative h-60 w-full overflow-hidden bg-gray-900">
+                        <img src="Atención Activa.jpeg" alt="Atención Activa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-black/80 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-lg">
+                            <i class="ph ph-eye text-2xl text-brand-green"></i>
+                        </div>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">Atención Activa</h4>
-                    <p class="text-gray-600">Mediante detección de proximidad, activamos videos y dinámicas justo cuando el cliente se acerca al anaquel, deteniendo el tráfico en el pasillo.</p>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3 text-brand-black">Atención Activa</h4>
+                            <p class="text-gray-600 leading-relaxed">Mediante detección de proximidad, activamos videos y dinámicas justo cuando el cliente se acerca al anaquel, deteniendo el tráfico en el pasillo.</p>
+                        </div>
+                    </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-14 h-14 rounded-2xl bg-black flex items-center justify-center mb-6 shadow-md">
-                        <i class="ph ph-cube-transparent text-3xl text-brand-green"></i>
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 transition-transform duration-300 flex flex-col group">
+                    <div class="relative h-60 w-full overflow-hidden bg-gray-900">
+                        <img src="Experiencias RA & Códigos QR.jpeg" alt="Experiencias RA & Códigos QR" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-black/80 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-lg">
+                            <i class="ph ph-cube-transparent text-2xl text-brand-green"></i>
+                        </div>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">Experiencias RA & Códigos QR</h4>
-                    <p class="text-gray-600">Despliega recetas, comparativas o modelos 3D en el móvil del usuario mediante códigos QR, o permite interactuar con la tablet frontal de 8 pulgadas.</p>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3 text-brand-black">Experiencias RA & Códigos QR</h4>
+                            <p class="text-gray-600 leading-relaxed">Despliega recetas, comparativas o modelos 3D en el móvil del usuario mediante códigos QR, o permite interactuar con la tablet frontal de 8 pulgadas.</p>
+                        </div>
+                    </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-14 h-14 rounded-2xl bg-black flex items-center justify-center mb-6 shadow-md">
-                        <i class="ph ph-chart-line-up text-3xl text-brand-accent"></i>
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 transition-transform duration-300 flex flex-col group">
+                    <div class="relative h-60 w-full overflow-hidden bg-gray-900">
+                        <img src="Telemetría Inmediata.jpg" alt="Telemetría Inmediata" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-black/80 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-lg">
+                            <i class="ph ph-chart-line-up text-2xl text-brand-accent"></i>
+                        </div>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">Telemetría Inmediata</h4>
-                    <p class="text-gray-600">Mide afluencia horaria, tiempos de permanencia y tasas de interacción. Transforma el comportamiento físico en un embudo de conversión digital.</p>
+                    <div class="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3 text-brand-black">Telemetría Inmediata</h4>
+                            <p class="text-gray-600 leading-relaxed">Mide afluencia horaria, tiempos de permanencia y tasas de interacción. Transforma el comportamiento físico en un embudo de conversión digital.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -182,9 +198,12 @@
                             <div class="flex-shrink-0 w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center border border-brand-green/30">
                                 <i class="ph ph-cpu text-2xl text-brand-green"></i>
                             </div>
-                            <div>
-                                <h4 class="text-xl font-semibold mb-1">Privacidad Absoluta (Edge AI)</h4>
-                                <p class="text-gray-400 text-sm">La visión por computadora procesa los datos en el dispositivo. No almacenamos imágenes ni biométricos. Solo enviamos metadatos: "1 persona, 12 segundos".</p>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-semibold mb-1">Privacidad Absoluta (Edge Computing)</h4>
+                                <p class="text-gray-400 text-sm mb-4">La visión por computadora procesa los datos en el dispositivo. No almacenamos imágenes ni biométricos. Solo enviamos metadatos: "1 persona, 12 segundos".</p>
+                                <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-brand-gray/80 max-w-md group">
+                                    <img src="EdgeComputing.jpg" alt="Privacidad Absoluta con Edge Computing" class="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-300" loading="lazy">
+                                </div>
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
@@ -261,100 +280,40 @@
                 </p>
             </div>
 
-            <div class="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden relative">
-                <!-- Browser Header Mockup -->
-                <div class="bg-brand-black px-4 py-3 flex items-center gap-2 border-b border-gray-800">
-                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-brand-green"></div>
-                    <div class="ml-4 bg-gray-800 text-gray-400 text-xs px-3 py-1 rounded flex-1 text-center font-mono max-w-md mx-auto hidden sm:block">
-                        app.dashboardretail.com/analytics
+            <div class="grid lg:grid-cols-2 gap-8 items-start">
+                <!-- Pantalla 1: Calendario Mensual -->
+                <div class="bg-brand-black rounded-2xl shadow-2xl border border-gray-800 overflow-hidden hover:border-brand-green/40 transition-all duration-300 group">
+                    <div class="bg-brand-gray px-4 py-3 flex items-center justify-between border-b border-gray-800">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-brand-green/80"></div>
+                        </div>
+                        <span class="text-xs text-gray-300 font-mono flex items-center gap-1.5">
+                            <i class="ph ph-calendar text-brand-green"></i> Vista Mensual • Afluencia Global
+                        </span>
+                        <div class="w-6"></div>
+                    </div>
+                    <div class="overflow-hidden bg-black">
+                        <img src="Toda tu red en una sola pantalla 1.jpeg" alt="Toda tu red en una sola pantalla - Vista Mensual" class="w-full h-auto object-contain group-hover:scale-102 transition-transform duration-500" loading="lazy">
                     </div>
                 </div>
-                
-                <!-- Dashboard Content Mockup -->
-                <div class="p-6 md:p-8 grid lg:grid-cols-3 gap-6 bg-gray-50">
-                    <!-- Left Column: KPIs & Map -->
-                    <div class="lg:col-span-2 space-y-6">
-                        <div class="grid grid-cols-3 gap-4">
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                <div class="text-gray-500 text-xs font-semibold uppercase mb-1">Impactos Hoy</div>
-                                <div class="text-2xl font-bold text-brand-black">12,450</div>
-                                <div class="text-brand-green text-xs font-bold mt-1 flex items-center"><i class="ph ph-trend-up mr-1"></i> +14% vs ayer</div>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                <div class="text-gray-500 text-xs font-semibold uppercase mb-1">Tasa Interacción</div>
-                                <div class="text-2xl font-bold text-brand-black">28.5%</div>
-                                <div class="text-brand-accent text-xs font-bold mt-1">RA QR Scans</div>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                                <div class="text-gray-500 text-xs font-semibold uppercase mb-1">Nodos Activos</div>
-                                <div class="text-2xl font-bold text-brand-black">142/150</div>
-                                <div class="text-gray-400 text-xs font-medium mt-1">Conectividad LTE OK</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Chart Mockup -->
-                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                            <div class="flex justify-between items-center mb-6">
-                                <h4 class="font-bold text-gray-800">Afluencia vs Interacciones (Últimos 7 días)</h4>
-                                <div class="text-xs text-gray-500 border rounded px-2 py-1">Sucursal: Todas</div>
-                            </div>
-                            <div class="h-48 flex items-end gap-2">
-                                <!-- Bars -->
-                                <div class="flex-1 bg-gray-100 rounded-t-sm h-[40%] relative group"><div class="absolute bottom-0 w-full bg-brand-green rounded-t-sm h-[30%] group-hover:opacity-80 transition-opacity"></div></div>
-                                <div class="flex-1 bg-gray-100 rounded-t-sm h-[55%] relative group"><div class="absolute bottom-0 w-full bg-brand-green rounded-t-sm h-[45%] group-hover:opacity-80 transition-opacity"></div></div>
-                                <div class="flex-1 bg-gray-100 rounded-t-sm h-[80%] relative group"><div class="absolute bottom-0 w-full bg-brand-green rounded-t-sm h-[60%] group-hover:opacity-80 transition-opacity"></div></div>
-                                <div class="flex-1 bg-gray-100 rounded-t-sm h-[100%] relative group"><div class="absolute bottom-0 w-full bg-brand-green rounded-t-sm h-[75%] shadow-neon group-hover:opacity-80 transition-opacity"></div></div>
-                                <div class="flex-1 bg-gray-100 rounded-t-sm h-[85%] relative group"><div class="absolute bottom-0 w-full bg-brand-green rounded-t-sm h-[65%] group-hover:opacity-80 transition-opacity"></div></div>
-                                <div class="flex-1 bg-gray-100 rounded-t-sm h-[60%] relative group"><div class="absolute bottom-0 w-full bg-brand-accent rounded-t-sm h-[50%] group-hover:opacity-80 transition-opacity"></div></div>
-                                <div class="flex-1 bg-gray-100 rounded-t-sm h-[45%] relative group"><div class="absolute bottom-0 w-full bg-brand-green rounded-t-sm h-[35%] group-hover:opacity-80 transition-opacity"></div></div>
-                            </div>
-                            <div class="flex justify-between text-xs text-gray-400 mt-2 font-mono">
-                                <span>Lun</span><span>Mar</span><span>Mie</span><span class="text-brand-black font-bold">Jue</span><span>Vie</span><span>Sab</span><span>Dom</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Right Column: Live Feed -->
-                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col">
-                        <h4 class="font-bold text-gray-800 mb-4 flex items-center"><span class="w-2 h-2 rounded-full bg-red-500 animate-pulse mr-2"></span> Feed en Tiempo Real</h4>
-                        <div class="space-y-4 flex-1 overflow-hidden relative">
-                            <div class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white to-transparent z-10"></div>
-                            
-                            <div class="flex gap-3 text-sm border-b border-gray-50 pb-3">
-                                <i class="ph ph-qr-code text-brand-accent text-xl mt-0.5"></i>
-                                <div>
-                                    <p class="text-gray-800 font-medium">Escaneo QR RA Promocional</p>
-                                    <p class="text-gray-500 text-xs">Sucursal: Supermercado Norte - Pasillo 4</p>
-                                    <span class="text-[10px] text-gray-400">Hace 12 seg</span>
-                                </div>
-                            </div>
-                            <div class="flex gap-3 text-sm border-b border-gray-50 pb-3">
-                                <i class="ph ph-hand-pointing text-brand-green text-xl mt-0.5"></i>
-                                <div>
-                                    <p class="text-gray-800 font-medium">Interacción táctil: Ficha Recetas</p>
-                                    <p class="text-gray-500 text-xs">Sucursal: Hipermercado Centro - Puntera A</p>
-                                    <span class="text-[10px] text-gray-400">Hace 45 seg</span>
-                                </div>
-                            </div>
-                            <div class="flex gap-3 text-sm border-b border-gray-50 pb-3">
-                                <i class="ph ph-users text-gray-400 text-xl mt-0.5"></i>
-                                <div>
-                                    <p class="text-gray-800 font-medium">Detección de Grupo (3 personas)</p>
-                                    <p class="text-gray-500 text-xs">Permanencia: 24 segundos</p>
-                                    <span class="text-[10px] text-gray-400">Hace 2 min</span>
-                                </div>
-                            </div>
-                             <div class="flex gap-3 text-sm">
-                                <i class="ph ph-barcode text-brand-black text-xl mt-0.5"></i>
-                                <div>
-                                    <p class="text-gray-800 font-medium">Lectura Código Barras SKU-992</p>
-                                    <p class="text-gray-500 text-xs">Sucursal: Express Sur</p>
-                                    <span class="text-[10px] text-gray-400">Hace 5 min</span>
-                                </div>
-                            </div>
+                <!-- Pantalla 2: Gráfica Horaria -->
+                <div class="bg-brand-black rounded-2xl shadow-2xl border border-gray-800 overflow-hidden hover:border-brand-accent/40 transition-all duration-300 group">
+                    <div class="bg-brand-gray px-4 py-3 flex items-center justify-between border-b border-gray-800">
+                        <div class="flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                            <div class="w-3 h-3 rounded-full bg-brand-accent/80"></div>
                         </div>
+                        <span class="text-xs text-gray-300 font-mono flex items-center gap-1.5">
+                            <i class="ph ph-chart-bar text-brand-accent"></i> Analítica Horaria • Picos de Tráfico
+                        </span>
+                        <div class="w-6"></div>
+                    </div>
+                    <div class="overflow-hidden bg-black">
+                        <img src="Toda tu red en una sola pantalla 2.jpeg" alt="Toda tu red en una sola pantalla - Analítica por Hora" class="w-full h-auto object-contain group-hover:scale-102 transition-transform duration-500" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -406,7 +365,7 @@
                         <li class="flex items-center"><i class="ph ph-check-circle text-brand-green mr-2 text-xl"></i> Almacenamiento cloud e histórico</li>
                         <li class="flex items-center"><i class="ph ph-check-circle text-brand-green mr-2 text-xl"></i> Soporte técnico de software</li>
                     </ul>
-                    <div class="text-3xl font-extrabold relative z-10">$50 <span class="text-lg text-gray-400 font-medium">USD / mes / punto</span></div>
+                    <div class="text-3xl font-extrabold relative z-10">$25 <span class="text-lg text-gray-400 font-medium">USD / mes / punto</span></div>
                 </div>
             </div>
             
@@ -439,13 +398,12 @@
     <footer class="bg-brand-black text-white py-12 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="flex items-center gap-3">
-                    <img src="Logo Ing David Rodríguez Transparencia.png" alt="Dashboard Retail Logo" class="h-10 w-auto object-contain brightness-0 invert opacity-50" onerror="this.onerror=null; this.src='https://placehold.co/100x40/121212/8CC63F?text=DR';">
-                    <span class="font-bold text-lg text-gray-400">Dashboard<span class="text-brand-green">Retail</span></span>
+                <div class="flex items-center">
+                    <img src="Logo.png" alt="Dashboard Retail Logo" class="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity">
                 </div>
                 
                 <div class="flex gap-6 text-sm text-gray-400">
-                    <a href="#" class="hover:text-brand-green transition-colors">Privacidad Edge AI</a>
+                    <a href="#tecnologia" class="hover:text-brand-green transition-colors">Privacidad Edge Computing</a>
                     <a href="#" class="hover:text-brand-green transition-colors">Términos B2B</a>
                     <a href="#" class="hover:text-brand-green transition-colors">Especificaciones de Hardware</a>
                 </div>
@@ -465,5 +423,33 @@
         </div>
     </footer>
 
+    <script>
+        const videoWrapper = document.getElementById('videoWrapper');
+        const heroVideo = document.getElementById('heroVideo');
+        const videoOverlay = document.getElementById('videoOverlay');
+
+        if (videoWrapper && heroVideo) {
+            videoWrapper.addEventListener('click', function(e) {
+                if (heroVideo.paused) {
+                    heroVideo.play().then(() => {
+                        heroVideo.setAttribute('controls', 'true');
+                        if (videoOverlay) videoOverlay.style.display = 'none';
+                    }).catch(err => {
+                        console.log("Playback error:", err);
+                    });
+                }
+            });
+
+            heroVideo.addEventListener('play', function() {
+                heroVideo.setAttribute('controls', 'true');
+                if (videoOverlay) videoOverlay.style.display = 'none';
+            });
+
+            heroVideo.addEventListener('ended', function() {
+                if (videoOverlay) videoOverlay.style.display = 'flex';
+                heroVideo.removeAttribute('controls');
+            });
+        }
+    </script>
 </body>
 </html>
