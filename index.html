@@ -42,11 +42,11 @@
 </head>
 <body class="bg-brand-white text-brand-black antialiased selection:bg-brand-green selection:text-brand-black">
 
-    <nav class="fixed w-full z-50 bg-brand-black/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+    <nav id="mainNav" class="fixed w-full z-50 bg-brand-black/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <a href="#" class="flex-shrink-0 flex items-center">
-                    <img src="Logo.png" alt="Dashboard Retail" class="h-12 w-auto object-contain">
+            <div id="navContainer" class="flex justify-between items-center h-24 md:h-28 transition-all duration-300">
+                <a href="#" class="flex-shrink-0 flex items-center py-1">
+                    <img id="navLogo" src="Logo.png" alt="Dashboard Retail" class="h-16 md:h-20 w-auto object-contain transition-all duration-300">
                 </a>
                 <div class="hidden md:flex space-x-8">
                     <a href="#solucion" class="text-gray-300 hover:text-brand-green transition-colors text-sm font-medium">Solución</a>
@@ -56,11 +56,18 @@
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button class="text-gray-300 hover:text-white focus:outline-none">
-                        <i class="ph ph-list text-3xl"></i>
+                    <button id="mobileMenuBtn" class="text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg hover:bg-white/5 transition-colors" aria-label="Menú">
+                        <i id="mobileMenuIcon" class="ph ph-list text-3xl"></i>
                     </button>
                 </div>
             </div>
+        </div>
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-black/95 border-b border-white/10 px-4 pt-2 pb-6 space-y-2 backdrop-blur-md transition-all duration-300 shadow-2xl">
+            <a href="#solucion" class="mobile-nav-link block text-gray-300 hover:text-brand-green hover:bg-white/5 px-4 py-3 rounded-xl text-base font-medium transition-colors">Solución</a>
+            <a href="#tecnologia" class="mobile-nav-link block text-gray-300 hover:text-brand-green hover:bg-white/5 px-4 py-3 rounded-xl text-base font-medium transition-colors">Tecnología</a>
+            <a href="#dashboard" class="mobile-nav-link block text-gray-300 hover:text-brand-green hover:bg-white/5 px-4 py-3 rounded-xl text-base font-medium transition-colors">Plataforma</a>
+            <a href="#roi" class="mobile-nav-link block text-gray-300 hover:text-brand-green hover:bg-white/5 px-4 py-3 rounded-xl text-base font-medium transition-colors">Modelo SaaS</a>
         </div>
     </nav>
 
@@ -96,19 +103,16 @@
 
             <div class="lg:w-1/2 relative w-full max-w-lg mx-auto">
                 <div class="relative rounded-2xl bg-gradient-to-br from-brand-gray to-brand-black border border-white/10 p-6 shadow-2xl">
-                    <div class="absolute -top-4 -right-4 bg-brand-accent text-brand-black text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider animate-bounce">
-                        Live Data
-                    </div>
                     <!-- Mockup of the Shelf Node -->
                     <div class="aspect-[4/3] rounded-xl bg-black border border-white/5 overflow-hidden relative flex items-center justify-center group">
                         <!-- Tablet representation -->
-                        <div class="w-11/12 h-[82%] bg-gray-900 rounded-lg border-4 border-gray-800 shadow-xl relative overflow-hidden flex items-center justify-center cursor-pointer group/video" id="videoWrapper">
-                            <video id="heroVideo" src="DashboardRetail.mp4" playsinline preload="metadata" class="w-full h-full object-cover"></video>
-                            <div id="videoOverlay" class="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex flex-col items-center justify-center transition-all duration-300 group-hover/video:bg-black/20">
+                        <div class="w-11/12 h-[82%] bg-gray-900 rounded-lg border-4 border-gray-800 shadow-xl relative overflow-hidden flex items-center justify-center cursor-pointer group/video" id="openVideoBtn" title="Clic para ver en pantalla completa">
+                            <video src="DashboardRetail.mp4" playsinline muted preload="metadata" class="w-full h-full object-cover opacity-80 group-hover/video:opacity-100 group-hover/video:scale-105 transition-all duration-500"></video>
+                            <div class="absolute inset-0 bg-black/40 backdrop-blur-[1px] flex flex-col items-center justify-center transition-all duration-300 group-hover/video:bg-black/20">
                                 <div class="w-16 h-16 rounded-full bg-brand-green flex items-center justify-center shadow-neon group-hover/video:scale-110 transition-transform mb-2">
                                     <i class="ph-fill ph-play text-2xl text-brand-black ml-1"></i>
                                 </div>
-                                <span class="text-white text-xs font-medium bg-black/60 px-3 py-1 rounded-full border border-white/20">Clic para reproducir video</span>
+                                <span class="text-white text-xs font-semibold bg-black/70 px-3 py-1.5 rounded-full border border-white/20 tracking-wide">Clic para ver en pantalla completa</span>
                             </div>
                         </div>
                         <!-- Hardware labels -->
@@ -126,7 +130,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-brand-green font-bold tracking-wide uppercase text-sm mb-2">El Desafío</h2>
-                <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-6">Inviertes millones en POP, pero <span class="underline decoration-brand-accent decoration-4">no tienes datos</span>.</h3>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-brand-black mb-6">Inviertes en POP, pero <span class="underline decoration-brand-accent decoration-4">no tienes datos</span>.</h3>
                 <p class="text-gray-600 text-lg">
                     Las marcas de consumo masivo invierten enormes presupuestos en exhibidores físicos. Sin embargo, una vez instalado, el anaquel es ciego. Sólo conoces las ventas al final del día, pero ignoras cuántos pasaron, quiénes se detuvieron y qué llamó su atención.
                 </p>
@@ -134,47 +138,65 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 transition-transform duration-300 flex flex-col group">
+                <div class="card-preview bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-green/30 transition-all duration-300 flex flex-col group cursor-pointer"
+                     data-img="Atención Activa.jpeg"
+                     data-title="Atención Activa"
+                     data-desc="Mediante detección de proximidad, activamos videos y dinámicas justo cuando el cliente se acerca al anaquel, deteniendo el tráfico en el pasillo.">
                     <div class="relative h-60 w-full overflow-hidden bg-gray-900">
                         <img src="Atención Activa.jpeg" alt="Atención Activa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                         <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-black/80 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-lg">
                             <i class="ph ph-eye text-2xl text-brand-green"></i>
                         </div>
+                        <div class="absolute bottom-3 right-3 bg-black/75 hover:bg-black text-white text-[11px] font-medium px-2.5 py-1 rounded-full border border-white/20 backdrop-blur-sm opacity-90 group-hover:opacity-100 flex items-center gap-1 transition-opacity">
+                            <i class="ph ph-arrows-out-simple"></i> Pantalla Completa
+                        </div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col justify-between">
                         <div>
-                            <h4 class="text-xl font-bold mb-3 text-brand-black">Atención Activa</h4>
-                            <p class="text-gray-600 leading-relaxed">Mediante detección de proximidad, activamos videos y dinámicas justo cuando el cliente se acerca al anaquel, deteniendo el tráfico en el pasillo.</p>
+                            <h4 class="text-xl font-bold mb-3 text-brand-black group-hover:text-brand-green transition-colors">Atención Activa</h4>
+                            <p class="text-gray-600 leading-relaxed text-sm">Mediante detección de proximidad, activamos videos y dinámicas justo cuando el cliente se acerca al anaquel, deteniendo el tráfico en el pasillo.</p>
                         </div>
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 transition-transform duration-300 flex flex-col group">
+                <div class="card-preview bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-green/30 transition-all duration-300 flex flex-col group cursor-pointer"
+                     data-img="Experiencias RA & Códigos QR.jpeg"
+                     data-title="Experiencias RA & Códigos QR"
+                     data-desc="Despliega recetas, comparativas o modelos 3D en el móvil del usuario mediante códigos QR, o permite interactuar con la tablet frontal de 8 pulgadas.">
                     <div class="relative h-60 w-full overflow-hidden bg-gray-900">
                         <img src="Experiencias RA & Códigos QR.jpeg" alt="Experiencias RA & Códigos QR" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                         <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-black/80 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-lg">
                             <i class="ph ph-cube-transparent text-2xl text-brand-green"></i>
                         </div>
+                        <div class="absolute bottom-3 right-3 bg-black/75 hover:bg-black text-white text-[11px] font-medium px-2.5 py-1 rounded-full border border-white/20 backdrop-blur-sm opacity-90 group-hover:opacity-100 flex items-center gap-1 transition-opacity">
+                            <i class="ph ph-arrows-out-simple"></i> Pantalla Completa
+                        </div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col justify-between">
                         <div>
-                            <h4 class="text-xl font-bold mb-3 text-brand-black">Experiencias RA & Códigos QR</h4>
-                            <p class="text-gray-600 leading-relaxed">Despliega recetas, comparativas o modelos 3D en el móvil del usuario mediante códigos QR, o permite interactuar con la tablet frontal de 8 pulgadas.</p>
+                            <h4 class="text-xl font-bold mb-3 text-brand-black group-hover:text-brand-green transition-colors">Experiencias RA & Códigos QR</h4>
+                            <p class="text-gray-600 leading-relaxed text-sm">Despliega recetas, comparativas o modelos 3D en el móvil del usuario mediante códigos QR, o permite interactuar con la tablet frontal de 8 pulgadas.</p>
                         </div>
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 transition-transform duration-300 flex flex-col group">
+                <div class="card-preview bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-accent/30 transition-all duration-300 flex flex-col group cursor-pointer"
+                     data-img="Telemetría Inmediata.jpg"
+                     data-title="Telemetría Inmediata"
+                     data-desc="Mide afluencia horaria, tiempos de permanencia y tasas de interacción. Transforma el comportamiento físico en un embudo de conversión digital.">
                     <div class="relative h-60 w-full overflow-hidden bg-gray-900">
                         <img src="Telemetría Inmediata.jpg" alt="Telemetría Inmediata" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                         <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-black/80 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-lg">
                             <i class="ph ph-chart-line-up text-2xl text-brand-accent"></i>
                         </div>
+                        <div class="absolute bottom-3 right-3 bg-black/75 hover:bg-black text-white text-[11px] font-medium px-2.5 py-1 rounded-full border border-white/20 backdrop-blur-sm opacity-90 group-hover:opacity-100 flex items-center gap-1 transition-opacity">
+                            <i class="ph ph-arrows-out-simple"></i> Pantalla Completa
+                        </div>
                     </div>
                     <div class="p-8 flex-1 flex flex-col justify-between">
                         <div>
-                            <h4 class="text-xl font-bold mb-3 text-brand-black">Telemetría Inmediata</h4>
-                            <p class="text-gray-600 leading-relaxed">Mide afluencia horaria, tiempos de permanencia y tasas de interacción. Transforma el comportamiento físico en un embudo de conversión digital.</p>
+                            <h4 class="text-xl font-bold mb-3 text-brand-black group-hover:text-brand-accent transition-colors">Telemetría Inmediata</h4>
+                            <p class="text-gray-600 leading-relaxed text-sm">Mide afluencia horaria, tiempos de permanencia y tasas de interacción. Transforma el comportamiento físico en un embudo de conversión digital.</p>
                         </div>
                     </div>
                 </div>
@@ -381,17 +403,9 @@
         <div class="absolute inset-0 bg-[url('https://placehold.co/1920x1080/8CC63F/78B13F?text=+')] opacity-10 bg-cover bg-center mix-blend-multiply"></div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h2 class="text-3xl md:text-5xl font-extrabold text-brand-black mb-6">Convierte tu exhibición en datos accionables hoy</h2>
-            <p class="text-xl text-black/70 mb-10 font-medium">
+            <p class="text-xl text-black/80 font-medium max-w-2xl mx-auto">
                 Únete a la revolución del Retail Intelligence. Agenda una demostración de nuestro MVP tecnológico.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button class="bg-brand-black text-white font-bold text-lg px-8 py-4 rounded-full shadow-xl hover:bg-gray-900 transition-all hover:scale-105 flex items-center justify-center gap-2">
-                    <i class="ph ph-calendar-plus text-xl"></i> Agendar Demostración
-                </button>
-                <button class="bg-white/30 text-brand-black border border-brand-black/20 font-bold text-lg px-8 py-4 rounded-full hover:bg-white/50 transition-all flex items-center justify-center gap-2">
-                    <i class="ph ph-envelope-simple text-xl"></i> Contactar Ventas
-                </button>
-            </div>
         </div>
     </section>
 
@@ -404,7 +418,7 @@
                 
                 <div class="flex gap-6 text-sm text-gray-400">
                     <a href="#tecnologia" class="hover:text-brand-green transition-colors">Privacidad Edge Computing</a>
-                    <a href="#" class="hover:text-brand-green transition-colors">Términos B2B</a>
+                    <a href="#roi" class="hover:text-brand-green transition-colors">Términos B2B</a>
                     <a href="#" class="hover:text-brand-green transition-colors">Especificaciones de Hardware</a>
                 </div>
 
@@ -423,33 +437,174 @@
         </div>
     </footer>
 
-    <script>
-        const videoWrapper = document.getElementById('videoWrapper');
-        const heroVideo = document.getElementById('heroVideo');
-        const videoOverlay = document.getElementById('videoOverlay');
+    <!-- Video Modal Pop-up (Pantalla Completa) -->
+    <div id="videoModal" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 transition-all duration-300">
+        <!-- Botón X en la esquina superior derecha -->
+        <button id="closeVideoBtn" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all focus:outline-none z-20 cursor-pointer shadow-lg" aria-label="Cerrar video">
+            <i class="ph ph-x text-2xl sm:text-3xl"></i>
+        </button>
+        <div class="relative w-full max-w-6xl max-h-[90vh] aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex items-center justify-center" id="videoModalContainer">
+            <video id="modalVideo" src="DashboardRetail.mp4" controls playsinline class="w-full h-full object-contain"></video>
+        </div>
+    </div>
 
-        if (videoWrapper && heroVideo) {
-            videoWrapper.addEventListener('click', function(e) {
-                if (heroVideo.paused) {
-                    heroVideo.play().then(() => {
-                        heroVideo.setAttribute('controls', 'true');
-                        if (videoOverlay) videoOverlay.style.display = 'none';
-                    }).catch(err => {
-                        console.log("Playback error:", err);
-                    });
+    <!-- Image Modal Pop-up (Pantalla Completa con Información) -->
+    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 transition-all duration-300">
+        <!-- Botón X en la esquina superior derecha -->
+        <button id="closeImageBtn" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all focus:outline-none z-20 cursor-pointer shadow-lg" aria-label="Cerrar imagen">
+            <i class="ph ph-x text-2xl sm:text-3xl"></i>
+        </button>
+        
+        <div class="relative max-w-5xl w-full max-h-[92vh] flex flex-col bg-brand-gray border border-white/10 rounded-3xl overflow-hidden shadow-2xl" id="imageModalContainer">
+            <!-- Imagen en tamaño completo -->
+            <div class="relative flex-1 bg-black flex items-center justify-center overflow-hidden min-h-[250px] max-h-[68vh]">
+                <img id="modalImageSrc" src="" alt="" class="w-full h-full object-contain">
+            </div>
+            <!-- Información de la imagen -->
+            <div class="p-5 sm:p-7 bg-brand-gray border-t border-white/10 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h3 id="modalImageTitle" class="text-xl sm:text-2xl font-extrabold text-brand-green mb-1.5"></h3>
+                    <p id="modalImageDesc" class="text-gray-300 text-sm sm:text-base leading-relaxed max-w-3xl"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenuIcon.classList.remove('ph-list');
+                    mobileMenuIcon.classList.add('ph-x');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.classList.remove('ph-x');
+                    mobileMenuIcon.classList.add('ph-list');
                 }
             });
 
-            heroVideo.addEventListener('play', function() {
-                heroVideo.setAttribute('controls', 'true');
-                if (videoOverlay) videoOverlay.style.display = 'none';
-            });
-
-            heroVideo.addEventListener('ended', function() {
-                if (videoOverlay) videoOverlay.style.display = 'flex';
-                heroVideo.removeAttribute('controls');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.classList.remove('ph-x');
+                    mobileMenuIcon.classList.add('ph-list');
+                });
             });
         }
+
+        // 2. Shrink Logo & Navbar on Scroll
+        const navLogo = document.getElementById('navLogo');
+        const navContainer = document.getElementById('navContainer');
+        const mainNav = document.getElementById('mainNav');
+
+        function handleScroll() {
+            if (window.scrollY > 40) {
+                navContainer.classList.remove('h-24', 'md:h-28');
+                navContainer.classList.add('h-16', 'md:h-20');
+                navLogo.classList.remove('h-16', 'md:h-20');
+                navLogo.classList.add('h-10', 'md:h-12');
+                mainNav.classList.add('shadow-xl', 'bg-brand-black/95');
+            } else {
+                navContainer.classList.remove('h-16', 'md:h-20');
+                navContainer.classList.add('h-24', 'md:h-28');
+                navLogo.classList.remove('h-10', 'md:h-12');
+                navLogo.classList.add('h-16', 'md:h-20');
+                mainNav.classList.remove('shadow-xl', 'bg-brand-black/95');
+            }
+        }
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+
+        // 3. Video Modal Logic
+        const openVideoBtn = document.getElementById('openVideoBtn');
+        const videoModal = document.getElementById('videoModal');
+        const closeVideoBtn = document.getElementById('closeVideoBtn');
+        const modalVideo = document.getElementById('modalVideo');
+        const videoModalContainer = document.getElementById('videoModalContainer');
+
+        function openVideo() {
+            videoModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            modalVideo.currentTime = 0;
+            modalVideo.play().catch(e => console.log(e));
+        }
+
+        function closeVideo() {
+            modalVideo.pause();
+            videoModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        if (openVideoBtn && videoModal) {
+            openVideoBtn.addEventListener('click', openVideo);
+            closeVideoBtn.addEventListener('click', closeVideo);
+            videoModal.addEventListener('click', (e) => {
+                if (!videoModalContainer.contains(e.target) && e.target !== closeVideoBtn) {
+                    closeVideo();
+                }
+            });
+        }
+
+        // 4. Image Lightbox Modal Logic
+        const imageModal = document.getElementById('imageModal');
+        const closeImageBtn = document.getElementById('closeImageBtn');
+        const modalImageSrc = document.getElementById('modalImageSrc');
+        const modalImageTitle = document.getElementById('modalImageTitle');
+        const modalImageDesc = document.getElementById('modalImageDesc');
+        const imageModalContainer = document.getElementById('imageModalContainer');
+        const cardPreviews = document.querySelectorAll('.card-preview');
+
+        function openImage(imgSrc, title, desc) {
+            modalImageSrc.src = imgSrc;
+            modalImageSrc.alt = title;
+            modalImageTitle.textContent = title;
+            modalImageDesc.textContent = desc;
+            imageModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImage() {
+            imageModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        cardPreviews.forEach(card => {
+            card.addEventListener('click', () => {
+                const img = card.getAttribute('data-img');
+                const title = card.getAttribute('data-title');
+                const desc = card.getAttribute('data-desc');
+                openImage(img, title, desc);
+            });
+        });
+
+        if (imageModal && closeImageBtn) {
+            closeImageBtn.addEventListener('click', closeImage);
+            imageModal.addEventListener('click', (e) => {
+                if (!imageModalContainer.contains(e.target) && e.target !== closeImageBtn) {
+                    closeImage();
+                }
+            });
+        }
+
+        // 5. Global Escape key listener
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (videoModal && !videoModal.classList.contains('hidden')) {
+                    closeVideo();
+                }
+                if (imageModal && !imageModal.classList.contains('hidden')) {
+                    closeImage();
+                }
+            }
+        });
     </script>
 </body>
 </html>
