@@ -193,7 +193,7 @@
                 <div class="card-preview pulse-card-2 bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-green/30 transition-all duration-300 flex flex-col group cursor-pointer"
                      data-img="Experiencias RA & Códigos QR.jpeg"
                      data-title="Experiencias AR"
-                     data-desc="Despliega recetas, comparativas, modelos 3D en el móvil del usuario mediante códigos QR, o simplemente permite interactuar con la tablet frontal de 8 pulgadas. Toda esta interacción queda registrada para ser consultada y comparada en el dashboard en el que se visualizan todas las sucursales que incluyan Dashboard Retail en sus anaqueles.">
+                     data-desc="Despliega recetas, modelos 3D en el móvil del usuario mediante códigos QR o permite interactuar con la tablet de 8 pulgadas">
                     <div class="relative h-60 w-full overflow-hidden bg-gray-900">
                         <img src="Experiencias RA & Códigos QR.jpeg" alt="Experiencias AR" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                         <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-black/80 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-lg">
@@ -443,7 +443,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="flex items-center">
-                    <img src="Logo.png" alt="Dashboard Retail Logo" class="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity">
+                    <a href="#" class="inline-block cursor-pointer transition-transform hover:scale-105" title="Ir al inicio" aria-label="Ir al inicio">
+                        <img src="Logo.png" alt="Dashboard Retail Logo" class="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity">
+                    </a>
                 </div>
                 
                 <div class="flex gap-6 text-sm text-gray-400">
@@ -452,10 +454,9 @@
                     <a href="#" class="hover:text-brand-green transition-colors">Especificaciones de Hardware</a>
                 </div>
 
-
             </div>
-            <div class="text-center mt-12 text-xs text-gray-600 border-t border-white/5 pt-6">
-                &copy; 2026 Dashboard Retail. Todos los derechos reservados. Desarrollado por Ing. David Rodríguez. Clean-Room Architecture.
+            <div class="text-center mt-12 text-xs text-gray-500 border-t border-white/5 pt-6">
+                2026 Dashboard Retail. Desarrollando por Ing David Rodríguez.
             </div>
         </div>
     </footer>
@@ -563,10 +564,19 @@
                                 <i class="ph ph-caret-down text-xl"></i>
                             </div>
                         </button>
-                        <div class="accordion-content hidden px-5 sm:px-6 pb-6 pt-1 text-gray-200 text-base sm:text-lg leading-relaxed border-t border-white/5 space-y-4">
-                            <p>Dashboard Retail transforma exhibidores, anaqueles y punteras de góndola en nodos interactivos inteligentes mediante la inclusión de tablets, conectividad LTE independiente y respaldo eléctrico (UPS).</p>
-                            <p>Atrae al consumidor mediante activaciones dinámicas y experiencias interactivas llamativas como la realidad aumentada lo que aumenta el tiempo de permanencia del cliente potencial frente a la exhibición, aumentando la probabilidad de compra.</p>
-                            <p>Simultáneamente recopilando telemetría de proximidad y permanencia a través de visión artificial anónima en el borde (Edge Computing), sin registrar imágenes ni almacenar datos biométricos, así como registro de interacciones del usuario lo que recopilará las preferencias e intensiones del cliente.</p>
+                        <div class="accordion-content hidden px-5 sm:px-6 pb-6 pt-2 text-gray-200 text-base sm:text-lg leading-relaxed border-t border-white/5 space-y-4">
+                            <div class="flex items-start gap-3.5">
+                                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-brand-green/20 text-brand-green border border-brand-green/40 font-bold text-sm flex items-center justify-center mt-0.5">1</span>
+                                <p class="flex-1">Dashboard Retail transforma exhibidores, anaqueles y punteras de góndola en nodos interactivos inteligentes mediante la inclusión de tablets, conectividad LTE independiente y respaldo eléctrico (UPS).</p>
+                            </div>
+                            <div class="flex items-start gap-3.5">
+                                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-brand-green/20 text-brand-green border border-brand-green/40 font-bold text-sm flex items-center justify-center mt-0.5">2</span>
+                                <p class="flex-1">Atrae al consumidor mediante activaciones dinámicas y experiencias interactivas llamativas como la realidad aumentada lo que aumenta el tiempo de permanencia del cliente potencial frente a la exhibición, aumentando la probabilidad de compra.</p>
+                            </div>
+                            <div class="flex items-start gap-3.5">
+                                <span class="flex-shrink-0 w-7 h-7 rounded-full bg-brand-green/20 text-brand-green border border-brand-green/40 font-bold text-sm flex items-center justify-center mt-0.5">3</span>
+                                <p class="flex-1">Simultáneamente se recopila telemetría de proximidad y permanencia a través de visión artificial anónima (Edge Computing), sin registrar imágenes ni almacenar datos biométricos, así como registro de interacciones del usuario lo que recopilará las preferencias e intensiones del cliente.</p>
+                            </div>
                         </div>
                     </div>
 
