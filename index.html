@@ -38,6 +38,41 @@
                               linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
             background-size: 40px 40px;
         }
+        @keyframes pulseWave {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+                border-color: rgba(243, 244, 246, 1);
+            }
+            12% {
+                transform: translateY(-8px) scale(1.03);
+                box-shadow: 0 20px 30px -5px rgba(140, 198, 63, 0.35), 0 0 25px rgba(140, 198, 63, 0.4);
+                border-color: #8CC63F;
+            }
+            24% {
+                transform: translateY(0) scale(1);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+                border-color: rgba(243, 244, 246, 1);
+            }
+        }
+        .pulse-card-1 {
+            animation: pulseWave 6s ease-in-out infinite;
+            animation-delay: 0s;
+        }
+        .pulse-card-2 {
+            animation: pulseWave 6s ease-in-out infinite;
+            animation-delay: 1.4s;
+        }
+        .pulse-card-3 {
+            animation: pulseWave 6s ease-in-out infinite;
+            animation-delay: 2.8s;
+        }
+        .pulse-card-1:hover, .pulse-card-2:hover, .pulse-card-3:hover {
+            animation-play-state: paused;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.15), 0 0 20px rgba(140, 198, 63, 0.35);
+            border-color: #8CC63F;
+        }
     </style>
 </head>
 <body class="bg-brand-white text-brand-black antialiased selection:bg-brand-green selection:text-brand-black">
@@ -48,11 +83,14 @@
                 <a href="#" class="flex-shrink-0 flex items-center py-1">
                     <img id="navLogo" src="Logo.png" alt="Dashboard Retail" class="h-16 md:h-20 w-auto object-contain transition-all duration-300">
                 </a>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex items-center space-x-8">
                     <a href="#solucion" class="text-gray-300 hover:text-brand-green transition-colors text-sm font-medium">Solución</a>
                     <a href="#tecnologia" class="text-gray-300 hover:text-brand-green transition-colors text-sm font-medium">Tecnología</a>
                     <a href="#dashboard" class="text-gray-300 hover:text-brand-green transition-colors text-sm font-medium">Plataforma</a>
                     <a href="#roi" class="text-gray-300 hover:text-brand-green transition-colors text-sm font-medium">Modelo SaaS</a>
+                    <button class="nav-about-btn text-brand-green hover:text-white transition-colors text-sm font-semibold flex items-center gap-1.5 cursor-pointer">
+                        <i class="ph ph-info text-base"></i> Conoce más
+                    </button>
                 </div>
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
@@ -68,6 +106,9 @@
             <a href="#tecnologia" class="mobile-nav-link block text-gray-300 hover:text-brand-green hover:bg-white/5 px-4 py-3 rounded-xl text-base font-medium transition-colors">Tecnología</a>
             <a href="#dashboard" class="mobile-nav-link block text-gray-300 hover:text-brand-green hover:bg-white/5 px-4 py-3 rounded-xl text-base font-medium transition-colors">Plataforma</a>
             <a href="#roi" class="mobile-nav-link block text-gray-300 hover:text-brand-green hover:bg-white/5 px-4 py-3 rounded-xl text-base font-medium transition-colors">Modelo SaaS</a>
+            <button class="nav-about-btn mobile-nav-link w-full text-left block text-brand-green hover:text-white hover:bg-white/5 px-4 py-3 rounded-xl text-base font-semibold transition-colors cursor-pointer flex items-center gap-2">
+                <i class="ph ph-info text-lg"></i> Conoce más
+            </button>
         </div>
     </nav>
 
@@ -138,7 +179,7 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="card-preview bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-green/30 transition-all duration-300 flex flex-col group cursor-pointer"
+                <div class="card-preview pulse-card-1 bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-green/30 transition-all duration-300 flex flex-col group cursor-pointer"
                      data-img="Atención Activa.jpeg"
                      data-title="Atención Activa"
                      data-desc="Mediante detección de proximidad, activamos videos y dinámicas justo cuando el cliente se acerca al anaquel, deteniendo el tráfico en el pasillo.">
@@ -147,40 +188,34 @@
                         <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-black/80 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-lg">
                             <i class="ph ph-eye text-2xl text-brand-green"></i>
                         </div>
-                        <div class="absolute bottom-3 right-3 bg-black/75 hover:bg-black text-white text-[11px] font-medium px-2.5 py-1 rounded-full border border-white/20 backdrop-blur-sm opacity-90 group-hover:opacity-100 flex items-center gap-1 transition-opacity">
-                            <i class="ph ph-arrows-out-simple"></i> Pantalla Completa
-                        </div>
                     </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h4 class="text-xl font-bold mb-3 text-brand-black group-hover:text-brand-green transition-colors">Atención Activa</h4>
-                            <p class="text-gray-600 leading-relaxed text-sm">Mediante detección de proximidad, activamos videos y dinámicas justo cuando el cliente se acerca al anaquel, deteniendo el tráfico en el pasillo.</p>
+                    <div class="p-6 flex items-center justify-between">
+                        <h4 class="text-xl font-bold text-brand-black group-hover:text-brand-green transition-colors">Atención Activa</h4>
+                        <div class="w-8 h-8 rounded-full bg-gray-100 group-hover:bg-brand-green/10 flex items-center justify-center text-gray-400 group-hover:text-brand-green transition-all">
+                            <i class="ph ph-arrow-up-right font-bold text-sm"></i>
                         </div>
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="card-preview bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-green/30 transition-all duration-300 flex flex-col group cursor-pointer"
+                <div class="card-preview pulse-card-2 bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-green/30 transition-all duration-300 flex flex-col group cursor-pointer"
                      data-img="Experiencias RA & Códigos QR.jpeg"
-                     data-title="Experiencias RA & Códigos QR"
+                     data-title="Experiencias AR"
                      data-desc="Despliega recetas, comparativas o modelos 3D en el móvil del usuario mediante códigos QR, o permite interactuar con la tablet frontal de 8 pulgadas.">
                     <div class="relative h-60 w-full overflow-hidden bg-gray-900">
-                        <img src="Experiencias RA & Códigos QR.jpeg" alt="Experiencias RA & Códigos QR" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <img src="Experiencias RA & Códigos QR.jpeg" alt="Experiencias AR" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                         <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-black/80 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-lg">
                             <i class="ph ph-cube-transparent text-2xl text-brand-green"></i>
                         </div>
-                        <div class="absolute bottom-3 right-3 bg-black/75 hover:bg-black text-white text-[11px] font-medium px-2.5 py-1 rounded-full border border-white/20 backdrop-blur-sm opacity-90 group-hover:opacity-100 flex items-center gap-1 transition-opacity">
-                            <i class="ph ph-arrows-out-simple"></i> Pantalla Completa
-                        </div>
                     </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h4 class="text-xl font-bold mb-3 text-brand-black group-hover:text-brand-green transition-colors">Experiencias RA & Códigos QR</h4>
-                            <p class="text-gray-600 leading-relaxed text-sm">Despliega recetas, comparativas o modelos 3D en el móvil del usuario mediante códigos QR, o permite interactuar con la tablet frontal de 8 pulgadas.</p>
+                    <div class="p-6 flex items-center justify-between">
+                        <h4 class="text-xl font-bold text-brand-black group-hover:text-brand-green transition-colors">Experiencias AR</h4>
+                        <div class="w-8 h-8 rounded-full bg-gray-100 group-hover:bg-brand-green/10 flex items-center justify-center text-gray-400 group-hover:text-brand-green transition-all">
+                            <i class="ph ph-arrow-up-right font-bold text-sm"></i>
                         </div>
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="card-preview bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-accent/30 transition-all duration-300 flex flex-col group cursor-pointer"
+                <div class="card-preview pulse-card-3 bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-gray-200/50 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-accent/30 transition-all duration-300 flex flex-col group cursor-pointer"
                      data-img="Telemetría Inmediata.jpg"
                      data-title="Telemetría Inmediata"
                      data-desc="Mide afluencia horaria, tiempos de permanencia y tasas de interacción. Transforma el comportamiento físico en un embudo de conversión digital.">
@@ -189,14 +224,11 @@
                         <div class="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-black/80 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-lg">
                             <i class="ph ph-chart-line-up text-2xl text-brand-accent"></i>
                         </div>
-                        <div class="absolute bottom-3 right-3 bg-black/75 hover:bg-black text-white text-[11px] font-medium px-2.5 py-1 rounded-full border border-white/20 backdrop-blur-sm opacity-90 group-hover:opacity-100 flex items-center gap-1 transition-opacity">
-                            <i class="ph ph-arrows-out-simple"></i> Pantalla Completa
-                        </div>
                     </div>
-                    <div class="p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h4 class="text-xl font-bold mb-3 text-brand-black group-hover:text-brand-accent transition-colors">Telemetría Inmediata</h4>
-                            <p class="text-gray-600 leading-relaxed text-sm">Mide afluencia horaria, tiempos de permanencia y tasas de interacción. Transforma el comportamiento físico en un embudo de conversión digital.</p>
+                    <div class="p-6 flex items-center justify-between">
+                        <h4 class="text-xl font-bold text-brand-black group-hover:text-brand-accent transition-colors">Telemetría Inmediata</h4>
+                        <div class="w-8 h-8 rounded-full bg-gray-100 group-hover:bg-brand-accent/10 flex items-center justify-center text-gray-400 group-hover:text-brand-accent transition-all">
+                            <i class="ph ph-arrow-up-right font-bold text-sm"></i>
                         </div>
                     </div>
                 </div>
@@ -458,7 +490,7 @@
                 </div>
                 <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-2">Nodo Inteligente en Góndola</h3>
                 <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
-                    Transformamos anaqueles y punteras de góndola en nodos interactivos inteligentes. Medimos afluencia, atención y comportamiento del consumidor en tiempo real mediante Edge Computing.
+                    Transformamos la experiencia del consumidor frente al anaquel, y al mismo tiempo, convertimos puntas de góndola en nodos interactivos que proporcionan a las marcas telemetría comercial.
                 </p>
             </div>
         </div>
@@ -494,77 +526,97 @@
         </button>
         
         <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col bg-brand-gray border border-white/10 rounded-3xl overflow-hidden shadow-2xl text-white" id="aboutModalContainer">
-            <!-- Encabezado Modal -->
-            <div class="p-6 border-b border-white/10 flex items-center justify-between bg-brand-black/60">
+            <!-- Encabezado Modal con Logo más grande -->
+            <div class="p-6 sm:p-7 border-b border-white/10 flex items-center justify-between bg-brand-black/60">
                 <div class="flex items-center gap-3">
-                    <img src="Logo.png" alt="Dashboard Retail" class="h-9 w-auto object-contain">
+                    <img src="Logo.png" alt="Dashboard Retail" class="h-14 sm:h-16 w-auto object-contain">
                 </div>
-                <span class="text-xs font-semibold uppercase tracking-wider text-brand-green bg-brand-green/10 border border-brand-green/30 px-3 py-1 rounded-full">
+                <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-brand-green bg-brand-green/10 border border-brand-green/30 px-3.5 py-1.5 rounded-full">
                     Conoce más
                 </span>
             </div>
 
             <!-- Cuerpo Modal con scroll -->
             <div class="overflow-y-auto p-6 sm:p-8 space-y-6 max-h-[75vh]">
-                <p class="text-base sm:text-lg text-gray-200 leading-relaxed">
-                    Somos <strong class="text-white font-semibold">Dashboard Retail</strong>, una empresa que busca revolucionar el trade marketing convirtiendo anaqueles y puntas de góndola en nodos digitales interactivos, transformando la experiencia del consumidor frente al anaquel y al mismo tiempo, convirtiendo puntas de góndola en nodos interactivos que proporcionan a las marcas telemetría comercial.
+                <p class="text-lg sm:text-xl text-white font-medium leading-relaxed">
+                    Somos <strong class="text-brand-green font-bold">Dashboard Retail</strong>, una empresa que busca revolucionar el trade marketing convirtiendo anaqueles y puntas de góndola en nodos digitales interactivos.
                 </p>
-                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                <p class="text-base sm:text-lg text-gray-300 leading-relaxed">
                     Desarrollamos una plataforma de Retail Intelligence y telemetría en tiempo real diseñada para eliminar el punto ciego de las marcas de consumo masivo en el punto de venta físico.
                 </p>
 
-                <!-- Tarjetas de Información -->
+                <!-- Tarjetas Interactivas Desplegables -->
                 <div class="grid gap-4 pt-2">
                     <!-- Problema -->
-                    <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-red-400/40 transition-colors">
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-8 h-8 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center font-bold">
-                                <i class="ph ph-warning-circle text-lg"></i>
+                    <div class="accordion-item rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:border-red-400/40 transition-colors">
+                        <button type="button" class="accordion-header w-full p-5 sm:p-6 flex items-center justify-between text-left focus:outline-none cursor-pointer group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center font-bold text-xl sm:text-2xl flex-shrink-0">
+                                    <i class="ph ph-warning-circle"></i>
+                                </div>
+                                <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-red-400 transition-colors">Problema</h4>
                             </div>
-                            <h4 class="text-base sm:text-lg font-bold text-white">Problema</h4>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed sm:pl-11">
+                            <div class="accordion-arrow w-9 h-9 rounded-full bg-white/5 group-hover:bg-white/15 flex items-center justify-center text-gray-300 group-hover:text-white transition-transform duration-300 flex-shrink-0">
+                                <i class="ph ph-caret-down text-xl"></i>
+                            </div>
+                        </button>
+                        <div class="accordion-content hidden px-5 sm:px-6 pb-6 pt-1 text-gray-200 text-base sm:text-lg leading-relaxed border-t border-white/5">
                             Las marcas de consumo masivo invierten millones en exhibición física y material POP sin contar con datos en tiempo real sobre la afluencia, horarios ni el comportamiento real del consumidor frente al anaquel.
-                        </p>
+                        </div>
                     </div>
 
                     <!-- Solución -->
-                    <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-green/40 transition-colors">
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-8 h-8 rounded-lg bg-brand-green/20 text-brand-green flex items-center justify-center font-bold">
-                                <i class="ph ph-cpu text-lg"></i>
+                    <div class="accordion-item rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:border-brand-green/40 transition-colors">
+                        <button type="button" class="accordion-header w-full p-5 sm:p-6 flex items-center justify-between text-left focus:outline-none cursor-pointer group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-green/20 text-brand-green flex items-center justify-center font-bold text-xl sm:text-2xl flex-shrink-0">
+                                    <i class="ph ph-cpu"></i>
+                                </div>
+                                <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-brand-green transition-colors">Solución</h4>
                             </div>
-                            <h4 class="text-base sm:text-lg font-bold text-white">Solución</h4>
+                            <div class="accordion-arrow w-9 h-9 rounded-full bg-white/5 group-hover:bg-white/15 flex items-center justify-center text-gray-300 group-hover:text-white transition-transform duration-300 flex-shrink-0">
+                                <i class="ph ph-caret-down text-xl"></i>
+                            </div>
+                        </button>
+                        <div class="accordion-content hidden px-5 sm:px-6 pb-6 pt-1 text-gray-200 text-base sm:text-lg leading-relaxed border-t border-white/5">
+                            Dashboard Retail transforma exhibidores, anaqueles y punteras de góndola en nodos interactivos inteligentes mediante la inclusión de tablets, conectividad LTE independiente y respaldo eléctrico (UPS). Atrae al consumidor mediante activaciones dinámicas y experiencias interactivas en Realidad Aumentada, recopilando telemetría de proximidad y permanencia a través de visión artificial anónima en el borde (Edge Computing), sin registrar imágenes ni almacenar datos biométricos.
                         </div>
-                        <p class="text-gray-300 text-sm leading-relaxed sm:pl-11">
-                            Dashboard Retail transforma exhibidores, anaqueles y punteras de góndola en nodos interactivos inteligentes mediante la incluisón de tablets, conectividad LTE independiente y respaldo eléctrico (UPS). Atrae al consumidor mediante activaciones dinámicas y experiencias interactivas en Realidad Aumentada, recopilando telemetría de proximidad y permanencia a través de visión artificial anónima en el borde (Edge Computing), sin registrar imágenes ni almacenar datos biométricos.
-                        </p>
                     </div>
 
                     <!-- Visualización -->
-                    <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/40 transition-colors">
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-8 h-8 rounded-lg bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold">
-                                <i class="ph ph-chart-bar text-lg"></i>
+                    <div class="accordion-item rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:border-brand-accent/40 transition-colors">
+                        <button type="button" class="accordion-header w-full p-5 sm:p-6 flex items-center justify-between text-left focus:outline-none cursor-pointer group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold text-xl sm:text-2xl flex-shrink-0">
+                                    <i class="ph ph-chart-bar"></i>
+                                </div>
+                                <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-brand-accent transition-colors">Visualización</h4>
                             </div>
-                            <h4 class="text-base sm:text-lg font-bold text-white">Visualización</h4>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed sm:pl-11">
+                            <div class="accordion-arrow w-9 h-9 rounded-full bg-white/5 group-hover:bg-white/15 flex items-center justify-center text-gray-300 group-hover:text-white transition-transform duration-300 flex-shrink-0">
+                                <i class="ph ph-caret-down text-xl"></i>
+                            </div>
+                        </button>
+                        <div class="accordion-content hidden px-5 sm:px-6 pb-6 pt-1 text-gray-200 text-base sm:text-lg leading-relaxed border-t border-white/5">
                             Un panel de control centralizado y en tiempo real con geolocalización de sucursales, mapas de calor, franjas horarias de mayor tráfico y métricas detalladas de interacción para optimizar las decisiones estratégicas de trade marketing. Centralizamos toda la telemetría en dashboard que permite a las empresas de consumo masivo optimizar sus ventas y maximizar el retorno de su exhibición física.
-                        </p>
+                        </div>
                     </div>
 
                     <!-- Modelo y Tracción -->
-                    <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-green/40 transition-colors">
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-8 h-8 rounded-lg bg-brand-green/20 text-brand-green flex items-center justify-center font-bold">
-                                <i class="ph ph-rocket-launch text-lg"></i>
+                    <div class="accordion-item rounded-2xl bg-white/5 border border-white/10 overflow-hidden hover:border-brand-green/40 transition-colors">
+                        <button type="button" class="accordion-header w-full p-5 sm:p-6 flex items-center justify-between text-left focus:outline-none cursor-pointer group">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-brand-green/20 text-brand-green flex items-center justify-center font-bold text-xl sm:text-2xl flex-shrink-0">
+                                    <i class="ph ph-rocket-launch"></i>
+                                </div>
+                                <h4 class="text-lg sm:text-xl font-bold text-white group-hover:text-brand-green transition-colors">Modelo y Tracción</h4>
                             </div>
-                            <h4 class="text-base sm:text-lg font-bold text-white">Modelo y Tracción</h4>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed sm:pl-11">
+                            <div class="accordion-arrow w-9 h-9 rounded-full bg-white/5 group-hover:bg-white/15 flex items-center justify-center text-gray-300 group-hover:text-white transition-transform duration-300 flex-shrink-0">
+                                <i class="ph ph-caret-down text-xl"></i>
+                            </div>
+                        </button>
+                        <div class="accordion-content hidden px-5 sm:px-6 pb-6 pt-1 text-gray-200 text-base sm:text-lg leading-relaxed border-t border-white/5">
                             Operamos bajo un modelo SaaS B2B híbrido compuesto por una tarifa de instalación por nodo activo más una suscripción mensual recurrente.
-                        </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -695,8 +747,9 @@
             });
         }
 
-        // 5. Conoce Más Modal Logic
+        // 5. Conoce Más Modal & Accordion Logic
         const openAboutBtn = document.getElementById('openAboutBtn');
+        const navAboutBtns = document.querySelectorAll('.nav-about-btn');
         const aboutModal = document.getElementById('aboutModal');
         const closeAboutBtn = document.getElementById('closeAboutBtn');
         const aboutModalContainer = document.getElementById('aboutModalContainer');
@@ -711,8 +764,15 @@
             document.body.style.overflow = '';
         }
 
-        if (openAboutBtn && aboutModal) {
+        if (openAboutBtn) {
             openAboutBtn.addEventListener('click', openAbout);
+        }
+
+        navAboutBtns.forEach(btn => {
+            btn.addEventListener('click', openAbout);
+        });
+
+        if (aboutModal && closeAboutBtn) {
             closeAboutBtn.addEventListener('click', closeAbout);
             aboutModal.addEventListener('click', (e) => {
                 if (!aboutModalContainer.contains(e.target) && e.target !== closeAboutBtn) {
@@ -720,6 +780,27 @@
                 }
             });
         }
+
+        // Accordion functionality inside Conoce Más
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+            const arrow = item.querySelector('.accordion-arrow');
+
+            if (header && content) {
+                header.addEventListener('click', () => {
+                    const isExpanded = !content.classList.contains('hidden');
+                    if (isExpanded) {
+                        content.classList.add('hidden');
+                        if (arrow) arrow.classList.remove('rotate-180');
+                    } else {
+                        content.classList.remove('hidden');
+                        if (arrow) arrow.classList.add('rotate-180');
+                    }
+                });
+            }
+        });
 
         // 6. Global Escape key listener
         window.addEventListener('keydown', (e) => {
